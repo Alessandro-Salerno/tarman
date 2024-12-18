@@ -38,6 +38,7 @@ Tarman solves this by automating the steps you would have to follow to install a
 
 ## How to install tarman
 You can install tarman... with tarman...
+### Install tarman with tarman
 
 On Linux (x86-64):
 ```sh
@@ -64,6 +65,13 @@ curl -L "https://github.com/Alessandro-Salerno/tarman/raw/refs/heads/latest-buil
 > ```sh
 > echo "export PATH=~/.tarman/path/:\$PATH" >> ~/.bashrc && source ~/.bashrc
 > ```
+
+### Install Tarman from the AUR (Arch Linux and derivatives)
+...or from the AUR.
+Using your preferred AUR package manager (e.g. yay):
+```sh
+yay -S tarman-bin
+```
 
 ## How to use tarman
 This is a CLI tool, so the only way to interact with it (at the moment) is through the terminal. After installing it, type `tarman help` for a list of all commands and options. 
