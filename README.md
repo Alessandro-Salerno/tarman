@@ -55,18 +55,18 @@ On macOS (Apple Silicon - ARM64 - AARCH64):
 curl -L "https://github.com/Alessandro-Salerno/tarman/raw/refs/heads/latest-build/macos-arm64/tarman" -o ./tarman && chmod +x ./tarman && ./tarman add-repo "https://github.com/Alessandro-Salerno/tarman-user-repository/raw/refs/heads/latest-repos/macos-arm64.tar.gz" && ./tarman install -r tarman && rm ./tarman
 ```
 
-On macOS (Intel - x86_64):
+On macOS (Intel - x86-64):
 ```sh
 curl -L "https://github.com/Alessandro-Salerno/tarman/raw/refs/heads/latest-build/macos-x86_64/tarman" -o ./tarman && chmod +x ./tarman && ./tarman add-repo "https://github.com/Alessandro-Salerno/tarman-user-repository/raw/refs/heads/latest-repos/macos-x86_64.tar.gz" && ./tarman install -r tarman && rm ./tarman
 ```
 
 > [!IMPORTANT]
-> To use tarman properly, you'll have to add it to your `PATH` environment variable. This procedure depends on you [Shell](https://en.wikipedia.org/wiki/List_of_command-line_interpreters), with bash for example:
+> To use tarman properly, you'll have to add it to your `PATH` environment variable. This procedure depends on your [Shell](https://en.wikipedia.org/wiki/List_of_command-line_interpreters), with bash for example:
 > ```sh
 > echo "export PATH=~/.tarman/path/:\$PATH" >> ~/.bashrc && source ~/.bashrc
 > ```
 
-### Install Tarman from the AUR (Arch Linux and derivatives)
+### Install tarman from the AUR (Arch Linux and derivatives)
 ...or from the AUR.
 Using your preferred AUR package manager (e.g. yay):
 ```sh
