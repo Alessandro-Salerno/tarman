@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -27,111 +27,112 @@
 #include "stream.h"
 
 static void clear_input_stream(void) {
-  char ch = 0;
-  while (32 < (ch = getchar()) && !feof(stdin))
-    ;
+    char ch = 0;
+    while (32 < (ch = getchar()) && !feof(stdin))
+        ;
 }
 
 int cli_in_int(const char *msg, int range_min, int range_max) {
-  bool use_range = true;
+    bool use_range = true;
 
-  if (range_min == range_max) {
-    use_range = false;
-    range_min = INT_MIN;
-    range_max = INT_MAX;
-  }
-
-  while (true) {
-    int input = 0;
-
-    cli_out_newline();
-
-    if (use_range) {
-      cli_out_prompt("%s [%d, %d]:", msg, range_min, range_max);
-    } else {
-      cli_out_prompt("%s:", msg);
+    if (range_min == range_max) {
+        use_range = false;
+        range_min = INT_MIN;
+        range_max = INT_MAX;
     }
 
-    if (1 != scanf("%d", &input)) {
-      clear_input_stream();
-      cli_out_error("I/O Error: invalid input");
-      continue;
-    }
+    while (true) {
+        int input = 0;
 
-    if (input < range_min || input > range_max) {
-      cli_out_error("Range Error: value '%d' is not valid for range [%d, %d]",
-                    input,
-                    range_min,
-                    range_max);
-      continue;
-    }
+        cli_out_newline();
 
-    clear_input_stream();
-    cli_out_newline();
-    return input;
-  }
+        if (use_range) {
+            cli_out_prompt("%s [%d, %d]:", msg, range_min, range_max);
+        } else {
+            cli_out_prompt("%s:", msg);
+        }
+
+        if (1 != scanf("%d", &input)) {
+            clear_input_stream();
+            cli_out_error("I/O Error: invalid input");
+            continue;
+        }
+
+        if (input < range_min || input > range_max) {
+            cli_out_error(
+                "Range Error: value '%d' is not valid for range [%d, %d]",
+                input,
+                range_min,
+                range_max);
+            continue;
+        }
+
+        clear_input_stream();
+        cli_out_newline();
+        return input;
+    }
 }
 
 bool cli_in_bool(const char *msg) {
-  while (true) {
-    char input = 0;
+    while (true) {
+        char input = 0;
 
-    cli_out_newline();
-    cli_out_prompt("%s [Y/n]:", msg);
+        cli_out_newline();
+        cli_out_prompt("%s [Y/n]:", msg);
 
-    if (1 != scanf("%c", &input)) {
-      clear_input_stream();
-      cli_out_error("I/O Error: invalid input");
-      continue;
+        if (1 != scanf("%c", &input)) {
+            clear_input_stream();
+            cli_out_error("I/O Error: invalid input");
+            continue;
+        }
+
+        if ('\n' == input) {
+            cli_out_newline();
+            return true;
+        }
+
+        clear_input_stream();
+
+        if ('Y' == toupper(input)) {
+            cli_out_newline();
+            return true;
+        }
+
+        if ('n' == tolower(input)) {
+            cli_out_newline();
+            return false;
+        }
+
+        cli_out_error("Range Error: '%c' is not a valid input for range [Y/n]");
     }
-
-    if ('\n' == input) {
-      cli_out_newline();
-      return true;
-    }
-
-    clear_input_stream();
-
-    if ('Y' == toupper(input)) {
-      cli_out_newline();
-      return true;
-    }
-
-    if ('n' == tolower(input)) {
-      cli_out_newline();
-      return false;
-    }
-
-    cli_out_error("Range Error: '%c' is not a valid input for range [Y/n]");
-  }
 }
 
 void cli_in_str(const char *msg, char *buf, size_t len) {
-  cli_out_newline();
-  cli_out_prompt("%s:", msg);
+    cli_out_newline();
+    cli_out_prompt("%s:", msg);
 
-  size_t read = 0;
-  for (; read < len; read++) {
-    char c = getchar();
+    size_t read = 0;
+    for (; read < len; read++) {
+        char c = getchar();
 
-    if (EOF == c || '\n' == c) {
-      cli_out_newline();
-      return;
+        if (EOF == c || '\n' == c) {
+            cli_out_newline();
+            return;
+        }
+
+        buf[read] = c;
     }
 
-    buf[read] = c;
-  }
-
-  cli_out_newline();
-  clear_input_stream();
+    cli_out_newline();
+    clear_input_stream();
 }
 
 size_t cli_in_dystr(const char *msg, char **dst) {
-  cli_out_newline();
-  cli_out_prompt("%s:", msg);
-  size_t ret = stream_dyreadline(stdin, dst);
-  if (0 < ret) {
     cli_out_newline();
-  }
-  return ret;
+    cli_out_prompt("%s:", msg);
+    size_t ret = stream_dyreadline(stdin, dst);
+    if (0 < ret) {
+        cli_out_newline();
+    }
+    return ret;
 }

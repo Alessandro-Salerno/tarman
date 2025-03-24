@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -23,5 +23,5 @@
 #include "plugin/sdk.h"
 
 int plugin_main(sdk_handover_t *handover) {
-  return sdk_exec("tar", "-xf", handover->src, "-C", handover->dst, NULL);
+    return sdk_exec("tar", "-xf", handover->src, "-C", handover->dst, NULL);
 }

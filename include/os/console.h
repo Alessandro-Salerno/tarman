@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -22,18 +22,18 @@
 #include <stdlib.h>
 
 typedef struct {
-  size_t rows;
-  size_t columns;
+    size_t rows;
+    size_t columns;
 } csz_t;
 
 typedef enum {
-  TM_COLOR_RED,
-  TM_COLOR_GREEN,
-  TM_COLOR_YELLOW,
-  TM_COLOR_MAGENTA,
-  TM_COLOR_CYAN,
-  TM_COLOR_TEXT,
-  TM_COLOR_RESET
+    TM_COLOR_RED,
+    TM_COLOR_GREEN,
+    TM_COLOR_YELLOW,
+    TM_COLOR_MAGENTA,
+    TM_COLOR_CYAN,
+    TM_COLOR_TEXT,
+    TM_COLOR_RESET
 } color_t;
 
 csz_t os_console_get_sz(void);

@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -21,11 +21,11 @@
 #include "cli/directives/commands.h"
 
 int cli_cmd_update_all(cli_info_t info) {
-  (void)info;
-  return EXIT_FAILURE;
+    (void)info;
+    return EXIT_FAILURE;
 }
 
 int cli_cmd_list_repos(cli_info_t info) {
-  (void)info;
-  return EXIT_FAILURE;
+    (void)info;
+    return EXIT_FAILURE;
 }

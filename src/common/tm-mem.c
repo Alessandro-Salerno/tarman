@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -21,19 +21,19 @@
 #include "cli/output.h"
 
 void mem_safe_free(void *ptr) {
-  if (NULL != ptr) {
-    free(ptr);
-  }
+    if (NULL != ptr) {
+        free(ptr);
+    }
 }
 
 void mem_oom(void) {
-  cli_out_error("Unable to allocate memory, probably ran out of memory. "
-                "Exiting now");
-  exit(EXIT_FAILURE);
+    cli_out_error("Unable to allocate memory, probably ran out of memory. "
+                  "Exiting now");
+    exit(EXIT_FAILURE);
 }
 
 void mem_chkoom(void *ptr) {
-  if (NULL == ptr) {
-    mem_oom();
-  }
+    if (NULL == ptr) {
+        mem_oom();
+    }
 }

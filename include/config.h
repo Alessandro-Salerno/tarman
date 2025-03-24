@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -24,19 +24,19 @@
 #include <stdlib.h>
 
 typedef enum {
-  TM_CFG_PARSE_STATUS_NOFILE,
-  TM_CFG_PARSE_STATUS_PERM,
-  TM_CFG_PARSE_STATUS_MALFORMED,
-  TM_CFG_PARSE_STATUS_INVKEY,
-  TM_CFG_PARSE_STATUS_INVVAL,
-  TM_CFG_PARSE_STATUS_ERR,
-  TM_CFG_PARSE_STATUS_OK
+    TM_CFG_PARSE_STATUS_NOFILE,
+    TM_CFG_PARSE_STATUS_PERM,
+    TM_CFG_PARSE_STATUS_MALFORMED,
+    TM_CFG_PARSE_STATUS_INVKEY,
+    TM_CFG_PARSE_STATUS_INVVAL,
+    TM_CFG_PARSE_STATUS_ERR,
+    TM_CFG_PARSE_STATUS_OK
 } cfg_parse_status_t;
 
 typedef enum {
-  TM_CFG_PROP_MATCH_FALSE,
-  TM_CFG_PROP_MATCH_OK,
-  TM_CFG_PROP_MATCH_ERR
+    TM_CFG_PROP_MATCH_FALSE,
+    TM_CFG_PROP_MATCH_OK,
+    TM_CFG_PROP_MATCH_ERR
 } cfg_prop_match_t;
 
 typedef void cfg_generic_info_t;

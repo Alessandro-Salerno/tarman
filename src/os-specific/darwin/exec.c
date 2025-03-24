@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -22,13 +22,13 @@
 #include "os/posix/exec.h"
 
 int os_vexec(const char *executable, va_list args) {
-  return posix_vexec(executable, args);
+    return posix_vexec(executable, args);
 }
 
 int os_exec(const char *executable, ...) {
-  va_list args;
-  va_start(args, executable);
-  int ret = os_vexec(executable, args);
-  va_end(args);
-  return ret;
+    va_list args;
+    va_start(args, executable);
+    int ret = os_vexec(executable, args);
+    va_end(args);
+    return ret;
 }

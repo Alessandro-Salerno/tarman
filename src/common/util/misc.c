@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -27,26 +27,26 @@ size_t util_misc_dyfile(char      **dst,
                         const char *base_path,
                         const char *filename,
                         const char *filetype) {
-  size_t bufsz = strlen(filename) + 1 + strlen(filetype) + 1;
-  char  *fname = (char *)malloc(bufsz * sizeof(char));
-  mem_chkoom(fname);
-  snprintf(fname, bufsz, "%s.%s", filename, filetype);
+    size_t bufsz = strlen(filename) + 1 + strlen(filetype) + 1;
+    char  *fname = (char *)malloc(bufsz * sizeof(char));
+    mem_chkoom(fname);
+    snprintf(fname, bufsz, "%s.%s", filename, filetype);
 
-  size_t ret = os_fs_path_dyconcat(dst, 2, base_path, fname);
+    size_t ret = os_fs_path_dyconcat(dst, 2, base_path, fname);
 
-  mem_safe_free(fname);
-  return ret;
+    mem_safe_free(fname);
+    return ret;
 }
 
 size_t
 util_misc_dytmpfile(char **dst, const char *filename, const char *filetype) {
-  size_t bufsz = strlen(filename) + 1 + strlen(filetype) + 1;
-  char  *fname = (char *)malloc(bufsz * sizeof(char));
-  mem_chkoom(fname);
-  snprintf(fname, bufsz, "%s.%s", filename, filetype);
+    size_t bufsz = strlen(filename) + 1 + strlen(filetype) + 1;
+    char  *fname = (char *)malloc(bufsz * sizeof(char));
+    mem_chkoom(fname);
+    snprintf(fname, bufsz, "%s.%s", filename, filetype);
 
-  os_fs_tm_dycached(dst, fname);
-  mem_safe_free(fname);
+    os_fs_tm_dycached(dst, fname);
+    mem_safe_free(fname);
 
-  return bufsz - 1;
+    return bufsz - 1;
 }

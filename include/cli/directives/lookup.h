@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -24,8 +24,8 @@
 #include "cli/directives/types.h"
 
 typedef struct {
-  cli_drt_desc_t *table;
-  size_t          num_entries;
+    cli_drt_desc_t *table;
+    size_t          num_entries;
 } cli_lkup_table_t;
 
 bool             cli_lkup_command(const char *command, cli_drt_desc_t *dst);

@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -31,9 +31,9 @@
 // This structure uses 16-byte alignment to avoid future
 // strict-aliasing issues
 typedef struct {
-  const char *src;
-  const char *dst;
-  const char *cfg;
+    const char *src;
+    const char *dst;
+    const char *cfg;
 } __attribute__((aligned(16))) sdk_handover_t;
 
 // Run a program on the user's computer

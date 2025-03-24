@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -23,33 +23,33 @@
 #include <stdlib.h>
 
 typedef enum {
-  TM_FS_DIROP_STATUS_NOEXIST = 0,
-  TM_FS_DIROP_STATUS_EXIST   = 1,
-  TM_FS_DIROP_STATUS_PERM    = 2,
-  TM_FS_DIROP_STATUS_END     = 3,
-  TM_FS_DIROP_STATUS_ERR     = 4,
-  TM_FS_DIROP_STATUS_OK      = 5
+    TM_FS_DIROP_STATUS_NOEXIST = 0,
+    TM_FS_DIROP_STATUS_EXIST   = 1,
+    TM_FS_DIROP_STATUS_PERM    = 2,
+    TM_FS_DIROP_STATUS_END     = 3,
+    TM_FS_DIROP_STATUS_ERR     = 4,
+    TM_FS_DIROP_STATUS_OK      = 5
 } fs_dirop_status_t;
 
 typedef enum {
-  TM_FS_FILEOP_STATUS_NOEXIST = 0,
-  TM_FS_FILEOP_STATUS_PERM    = 1,
-  TM_FS_FILEOP_STATUS_ERR     = 2,
-  TM_FS_FILEOP_STATUS_OK      = 3
+    TM_FS_FILEOP_STATUS_NOEXIST = 0,
+    TM_FS_FILEOP_STATUS_PERM    = 1,
+    TM_FS_FILEOP_STATUS_ERR     = 2,
+    TM_FS_FILEOP_STATUS_OK      = 3
 } fs_fileop_status_t;
 
 typedef enum {
-  TM_FS_FILETYPE_DIR,
-  TM_FS_FILETYPE_REGULAR,
-  TM_FS_FILETYPE_EXEC,
-  TM_FS_FILETYPE_UNKNOWN
+    TM_FS_FILETYPE_DIR,
+    TM_FS_FILETYPE_REGULAR,
+    TM_FS_FILETYPE_EXEC,
+    TM_FS_FILETYPE_UNKNOWN
 } fs_filetype_t;
 
 typedef void *os_fs_dirstream_t;
 
 typedef struct {
-  fs_filetype_t file_type;
-  const char   *name;
+    fs_filetype_t file_type;
+    const char   *name;
 } fs_dirent_t;
 
 fs_dirop_status_t os_fs_mkdir(const char *path);
