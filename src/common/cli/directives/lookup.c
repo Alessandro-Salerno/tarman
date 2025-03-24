@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -177,40 +177,41 @@ static bool find_desc(cli_drt_desc_t  descriptors[],
                       size_t          num_desc,
                       const char     *arg,
                       cli_drt_desc_t *dst) {
-  for (size_t i = 0; i < num_desc; i++) {
-    cli_drt_desc_t opt_desc = descriptors[i];
+    for (size_t i = 0; i < num_desc; i++) {
+        cli_drt_desc_t opt_desc = descriptors[i];
 
-    if ((NULL == opt_desc.short_option ||
-         0 != strcmp(opt_desc.short_option, arg)) &&
-        (NULL == opt_desc.full_option ||
-         0 != strcmp(opt_desc.full_option, arg))) {
-      continue;
+        if ((NULL == opt_desc.short_option ||
+             0 != strcmp(opt_desc.short_option, arg)) &&
+            (NULL == opt_desc.full_option ||
+             0 != strcmp(opt_desc.full_option, arg))) {
+            continue;
+        }
+
+        *dst = opt_desc;
+        return true;
     }
 
-    *dst = opt_desc;
-    return true;
-  }
-
-  return false;
+    return false;
 }
 
 bool cli_lkup_command(const char *command, cli_drt_desc_t *dst) {
-  return find_desc(
-      commands, sizeof commands / sizeof(cli_drt_desc_t), command, dst);
+    return find_desc(
+        commands, sizeof commands / sizeof(cli_drt_desc_t), command, dst);
 }
 
 bool cli_lkup_option(const char *option, cli_drt_desc_t *dst) {
-  return find_desc(
-      options, sizeof options / sizeof(cli_drt_desc_t), option, dst);
+    return find_desc(
+        options, sizeof options / sizeof(cli_drt_desc_t), option, dst);
 }
 
 cli_lkup_table_t cli_lkup_cmdtable(void) {
-  return (cli_lkup_table_t){.table = commands,
-                            .num_entries =
-                                sizeof commands / sizeof(cli_drt_desc_t)};
+    return (cli_lkup_table_t){.table = commands,
+                              .num_entries =
+                                  sizeof commands / sizeof(cli_drt_desc_t)};
 }
 
 cli_lkup_table_t cli_lkup_opttable(void) {
-  return (cli_lkup_table_t){
-      .table = options, .num_entries = sizeof options / sizeof(cli_drt_desc_t)};
+    return (cli_lkup_table_t){.table = options,
+                              .num_entries =
+                                  sizeof options / sizeof(cli_drt_desc_t)};
 }

@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -25,16 +25,16 @@
 #include "cli/parser.h"
 
 int main(int argc, char *argv[]) {
-  cli_info_t cli_info        = {0};
-  cli_exec_t command_handler = NULL;
+    cli_info_t cli_info        = {0};
+    cli_exec_t command_handler = NULL;
 
-  if (!cli_parse(argc, argv, &cli_info, &command_handler)) {
-    return EXIT_FAILURE;
-  }
+    if (!cli_parse(argc, argv, &cli_info, &command_handler)) {
+        return EXIT_FAILURE;
+    }
 
-  if (NULL == command_handler) {
-    return cli_cmd_help(cli_info);
-  }
+    if (NULL == command_handler) {
+        return cli_cmd_help(cli_info);
+    }
 
-  return command_handler(cli_info);
+    return command_handler(cli_info);
 }

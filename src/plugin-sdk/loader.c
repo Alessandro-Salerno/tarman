@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -23,10 +23,10 @@
 #include "plugin/sdk.h"
 
 int main(int argc, char *argv[]) {
-  if (4 != argc) {
-    return EXIT_FAILURE;
-  }
+    if (4 != argc) {
+        return EXIT_FAILURE;
+    }
 
-  sdk_handover_t handover = {.src = argv[1], .dst = argv[2], .cfg = argv[3]};
-  return plugin_main(&handover);
+    sdk_handover_t handover = {.src = argv[1], .dst = argv[2], .cfg = argv[3]};
+    return plugin_main(&handover);
 }

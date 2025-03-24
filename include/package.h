@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -25,28 +25,28 @@
 
 // Structure for tarman package files (packaage.tarman)
 typedef struct {
-  const char *url;
-  const char *from_repoistory;
-  const char *application_name;
-  const char *executable_path;
-  const char *working_directory;
-  const char *icon_path;
+    const char *url;
+    const char *from_repoistory;
+    const char *application_name;
+    const char *executable_path;
+    const char *working_directory;
+    const char *icon_path;
 } pkg_info_t;
 
 // Structure of tarman recipe fles (recipe.tarman or <packagename>.tarman)
 typedef struct {
-  pkg_info_t  pkg_info;
-  const char *package_format;
-  bool        add_to_path;
-  bool        add_to_desktop;
-  bool        add_to_tarman;
+    pkg_info_t  pkg_info;
+    const char *package_format;
+    bool        add_to_path;
+    bool        add_to_desktop;
+    bool        add_to_tarman;
 } recipe_t;
 
 // "Runtime" recipe
 typedef struct {
-  recipe_t    recipe;
-  const char *pkg_name;
-  bool        is_remote;
+    recipe_t    recipe;
+    const char *pkg_name;
+    bool        is_remote;
 } rt_recipe_t;
 
 cfg_parse_status_t pkg_parse_ftmpkg(pkg_info_t *pkg_info, FILE *pkg_file);

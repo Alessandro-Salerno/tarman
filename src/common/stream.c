@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -23,41 +23,41 @@
 #include "tm-mem.h"
 
 size_t stream_dyreadline(FILE *stream, char **dst) {
-  size_t len        = 128;
-  char  *buf        = NULL;
-  size_t i          = 0;
-  char   ch         = 0;
-  bool   found_chrs = false;
+    size_t len        = 128;
+    char  *buf        = NULL;
+    size_t i          = 0;
+    char   ch         = 0;
+    bool   found_chrs = false;
 
-  while (EOF != (ch = fgetc(stream)) && '\n' != ch) {
-    if ('\r' == ch) {
-      continue;
+    while (EOF != (ch = fgetc(stream)) && '\n' != ch) {
+        if ('\r' == ch) {
+            continue;
+        }
+
+        if (!found_chrs && ' ' == ch) {
+            continue;
+        }
+
+        if (NULL == buf) {
+            buf = (char *)malloc(len * sizeof(char));
+            mem_chkoom(buf);
+        }
+
+        if (len - 1 == i) {
+            len *= 2;
+            buf = realloc(buf, len * sizeof(char));
+            mem_chkoom(buf);
+        }
+
+        found_chrs = true;
+        buf[i]     = ch;
+        i++;
     }
 
-    if (!found_chrs && ' ' == ch) {
-      continue;
+    if (NULL != buf) {
+        buf[i] = 0;
+        *dst   = buf;
     }
 
-    if (NULL == buf) {
-      buf = (char *)malloc(len * sizeof(char));
-      mem_chkoom(buf);
-    }
-
-    if (len - 1 == i) {
-      len *= 2;
-      buf = realloc(buf, len * sizeof(char));
-      mem_chkoom(buf);
-    }
-
-    found_chrs = true;
-    buf[i]     = ch;
-    i++;
-  }
-
-  if (NULL != buf) {
-    buf[i] = 0;
-    *dst   = buf;
-  }
-
-  return i;
+    return i;
 }

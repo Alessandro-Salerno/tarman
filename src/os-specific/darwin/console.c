@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -21,9 +21,9 @@
 #include "os/console.h"
 
 csz_t os_console_get_sz(void) {
-  return posix_console_get_sz();
+    return posix_console_get_sz();
 }
 
 void os_console_set_color(color_t color, bool bold) {
-  posix_console_set_color(color, bold);
+    posix_console_set_color(color, bold);
 }

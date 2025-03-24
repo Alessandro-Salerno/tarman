@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -39,10 +39,10 @@
     defined(__GNUC_PATCHLEVEL__) && !defined(__clang__) && \
     !defined(__llvm__) && !defined(__INTEL_COMPILER)
 #define EXT_TARMAN_COMPILER \
-  "gcc " STR(__GNUC__) "." STR(__GNUC_MINOR__) "." STR(__GNUC_PATCHLEVEL__)
+    "gcc " STR(__GNUC__) "." STR(__GNUC_MINOR__) "." STR(__GNUC_PATCHLEVEL__)
 #elif defined(__clang_minor__) && defined(__clang_major__)
 #define EXT_TARMAN_COMPILER \
-  "clang " STR(__clang_major__) "." STR(__clang_minor__)
+    "clang " STR(__clang_major__) "." STR(__clang_minor__)
 #elif defined(__clang__)
 #define EXT_TARMAN_COMPILER "clang (unknown version)"
 #elif defined(__llvm__)
@@ -55,11 +55,11 @@
 #endif // EXT_TARMAN_COMPILER
 
 int cli_cmd_version(cli_info_t info) {
-  (void)info;
+    (void)info;
 
-  puts("tarman version " EXT_TARMAN_BUILD);
-  puts("target: " EXT_TARMAN_OS);
-  puts("compiled with: " EXT_TARMAN_COMPILER);
+    puts("tarman version " EXT_TARMAN_BUILD);
+    puts("target: " EXT_TARMAN_OS);
+    puts("compiled with: " EXT_TARMAN_COMPILER);
 
-  return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

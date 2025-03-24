@@ -1,6 +1,6 @@
 /*************************************************************************
 | tarman                                                                 |
-| Copyright (C) 2024 Alessandro Salerno                                  |
+| Copyright (C) 2024 - 2025 Alessandro Salerno                                  |
 |                                                                        |
 | This program is free software: you can redistribute it and/or modify   |
 | it under the terms of the GNU General Public License as published by   |
@@ -21,9 +21,9 @@
 #include "os/no-optional/console.h"
 
 csz_t noopt_console_get_sz(void) {
-  return (csz_t){.rows = 40, .columns = 80};
+    return (csz_t){.rows = 40, .columns = 80};
 }
 
 void noopt_console_set_color(color_t color, bool bold) {
-  // Do nothing
+    // Do nothing
 }
