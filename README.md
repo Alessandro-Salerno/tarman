@@ -129,9 +129,9 @@ See the [documentation](docs/plugins.md) for more information.
 Using the included Makefile:
 ```sh
 make debug        # Compile the whole program (plugins included) in debug mode
-make release      # Compile the whol program (plugins included) in release mode
+make release      # Compile the whole program (plugins included) in release mode
 make plugin-sdk   # Compile ONLY the Plugin SDK
-make plugins      # Compile the Pugin SDK and all built-in plugins
+make plugins      # Compile the Plugin SDK and all built-in plugins
 ```
 
 ## License
